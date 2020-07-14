@@ -28,26 +28,26 @@ const includeN = inventors.filter((inventorsName) => inventorsName.includes("n")
 console.log("2. including N: ", includeN);
 
 // 3. out an array of the inventors whose name has the same letter twice in a row (e.g. nn or mm).
-// const sameLetter = inventors.filter((inventorsName) => {
-//     // console.log('inventorsName:', inventorsName)
-//     for (let i = 0; i < inventors.length; i++) {
-//         if (inventorsName[i] == inventorsName[i + 1]) {
-//             return inventorsName
-//         }
-//     }
-// })
-
-// another way to solve
-let sameLetter = inventors.filter(name => {
-    let splitName = name.split('')
-    let result = false
-    for (let i = 0; i < splitName.length; i++) {
-        if (splitName[i] === splitName[i + 1]) {
-            result = true
+const sameLetter = inventors.filter((inventorsName) => {
+    // console.log('inventorsName:', inventorsName)
+    for (let i = 0; i < inventorsName.length; i++) {
+        if (inventorsName[i] == inventorsName[i + 1]) {
+            return inventorsName
         }
     }
-    return result
 })
+
+// another way to solve
+// let sameLetter = inventors.filter(name => {
+//     let splitName = name.split('')
+//     let result = false
+//     for (let i = 0; i < splitName.length; i++) {
+//         if (splitName[i] === splitName[i + 1]) {
+//             result = true
+//         }
+//     }
+//     return result
+// })
 console.log("3. same letter: ", sameLetter)
 
 /* -----------------------------------------------------------------------
@@ -58,7 +58,7 @@ const oddNumber = numbers.filter(n => n % 2 != 0)
 console.log("4. odd Number: ", oddNumber)
 
 // 5. out an array of the numbers that have two digits.
-const twoDigit = numbers.filter(n => n >= 10)
+const twoDigit = numbers.filter(n => n >= 10 && n <= 99)
 console.log("5. two digit: ", twoDigit)
 
 // 6. out an array of the numbers which are prime.
@@ -192,20 +192,24 @@ console.log("1. have middle name: ", haveMiddleName)
 
 // 2. Bonus: Return a new array, that only has inventors without a middle name. 
 // (Hint: think about splice, if you use findIndex. But you may also use another of the methods you've learned about above.)
+const noMiddleName = inventors.filter((name) => {
+    return name.split(" ").length <= 2
+})
+console.log("2. no middle name: ", noMiddleName)
 
 // 3. Find the number divisible by 7.
 let numberDivSeven = numbers.find(number => number % 7 === 0)
 console.log("3. div by 7: ", numberDivSeven)
 
 // 4. Bonus: Return a new array, that only has the numbers that are not divisible by 7.
-// let notDivSeven = numbers.find(number => {
-//     let result = true
-//     for (let i = 0; i < number.length; i++) {
-//         if (number % 7 === 0)
-//             return false;
-//     }
-//     return result
-// })
-// console.log("4. not div by 7: ", notDivSeven)
+let notDivSeven = numbers.find(number => {
+    let result = true
+    for (let i = 0; i < numbers.length; i++) {
+        if (number % 7 === 0)
+            return false;
+    }
+    return result
+})
+console.log("4. not div by 7: ", notDivSeven)
 
 
